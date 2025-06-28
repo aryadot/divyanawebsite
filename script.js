@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   startButton.addEventListener('click', () => {
     startScreen.style.display = 'none';
     videoOverlay.style.display = 'block';
-    introVideo.load(); // in case previously stuck
+    introVideo.load();
     introVideo.play();
   });
 
@@ -77,18 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   certImages.forEach(img => {
     img.addEventListener('click', () => {
-      certModal.style.display = 'block';
+      certModal.style.display = 'flex';
       certModalImg.src = img.src;
     });
   });
 
   closeLightbox.addEventListener('click', () => {
     certModal.style.display = 'none';
+    certModalImg.src = "";
   });
 
   window.addEventListener('click', (e) => {
     if (e.target === certModal) {
       certModal.style.display = 'none';
+      certModalImg.src = "";
     }
   });
 });
