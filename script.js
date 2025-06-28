@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   startButton.addEventListener('click', () => {
     startScreen.style.display = 'none';
     videoOverlay.style.display = 'block';
+    introVideo.load(); // Reload to avoid stuck playback
     introVideo.play();
   });
 
