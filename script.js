@@ -60,4 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
       modalVideo.src = "";
     }
   });
+  const backToTop = document.getElementById("backToTop");
+window.onscroll = () => {
+  backToTop.style.display = window.scrollY > 400 ? "block" : "none";
+};
+backToTop.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
 });

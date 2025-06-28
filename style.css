@@ -116,13 +116,14 @@
 }
   section {
     display: none;
-    background-color: rgba(255, 255, 255, 0.7); /* or transparent if you removed white container */
-    backdrop-filter: blur(2px);
-    border-radius: 12px;
-    margin: 20px;
-    padding: 60px 20px;
-    animation: fadeIn 1s ease;
-    scroll-margin-top: 120px;
+  background-color: rgba(255, 255, 255, 0.7); /* semi-transparent */
+  backdrop-filter: blur(2px);
+  border-radius: 12px;
+  margin: 60px auto; /* Add vertical space between sections */
+  padding: 60px 20px;
+  animation: fadeIn 1s ease;
+  scroll-margin-top: 120px; /* Ensures it's not hidden under nav */
+  max-width: 1000px; /* Optional: to keep content nicely centered */
   }
   
   
@@ -429,5 +430,18 @@ section:nth-child(odd) {
   }
   html {
     scroll-behavior: smooth;
+  }
+  #backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 14px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    background: #ffc72c;
+    border: none;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
   }
   
