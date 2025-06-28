@@ -1,27 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // 🌟 Start Screen Logic
   const startButton = document.getElementById('start-button');
   const startScreen = document.getElementById('start-screen');
   const videoOverlay = document.getElementById('video-overlay');
   const introVideo = document.getElementById('intro-video');
   const soundToggle = document.getElementById('sound-toggle');
   const mainContent = document.getElementById('main-content');
-  const butterfly = document.getElementById('butterfly'); // 🦋 butterfly
+  const butterfly = document.getElementById('butterfly');
 
-  // Start screen logic
   startButton.addEventListener('click', () => {
     startScreen.style.display = 'none';
     videoOverlay.style.display = 'block';
-    introVideo.load(); // Reload to avoid stuck playback
+    introVideo.load(); // in case previously stuck
     introVideo.play();
   });
 
-  // Sound toggle logic
   soundToggle.addEventListener('click', () => {
     introVideo.muted = !introVideo.muted;
     soundToggle.textContent = introVideo.muted ? '🔇' : '🔊';
   });
 
-  // When video ends, reveal main content
   introVideo.addEventListener('ended', () => {
     videoOverlay.style.display = 'none';
     mainContent.style.display = 'block';
@@ -33,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // DANCE VIDEO MODAL LOGIC
+  // 💃 Dance Modal Viewer
   const danceThumbs = document.querySelectorAll(".dance-thumb video");
   const modal = document.getElementById("dance-modal");
   const modalVideo = document.getElementById("modal-video");
@@ -50,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
     modalVideo.pause();
-    modalVideo.src = ""; // reset
+    modalVideo.src = "";
   });
 
   window.addEventListener("click", (e) => {
@@ -60,10 +58,37 @@ document.addEventListener('DOMContentLoaded', () => {
       modalVideo.src = "";
     }
   });
-  const backToTop = document.getElementById("backToTop");
-window.onscroll = () => {
-  backToTop.style.display = window.scrollY > 400 ? "block" : "none";
-};
-backToTop.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
+  // 🔝 Back to Top Button
+  const backToTop = document.getElementById("backToTop");
+  window.addEventListener('scroll', () => {
+    backToTop.style.display = window.scrollY > 400 ? "block" : "none";
+  });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // 🖼️ Certificate Lightbox
+  const certImages = document.querySelectorAll('.cert-card img');
+  const certModal = document.getElementById('cert-modal');
+  const certModalImg = document.getElementById('cert-modal-img');
+  const closeLightbox = document.querySelector('.close-lightbox');
+
+  certImages.forEach(img => {
+    img.addEventListener('click', () => {
+      certModal.style.display = 'block';
+      certModalImg.src = img.src;
+    });
+  });
+
+  closeLightbox.addEventListener('click', () => {
+    certModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === certModal) {
+      certModal.style.display = 'none';
+    }
+  });
 });
