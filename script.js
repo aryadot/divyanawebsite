@@ -29,4 +29,33 @@ document.addEventListener('DOMContentLoaded', () => {
       section.style.display = "block";
     });
   });
+  document.addEventListener("DOMContentLoaded", () => {
+    const danceThumbs = document.querySelectorAll(".dance-thumb video");
+    const modal = document.getElementById("dance-modal");
+    const modalVideo = document.getElementById("modal-video");
+    const closeBtn = document.querySelector(".close-btn");
+  
+    danceThumbs.forEach(video => {
+      video.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modalVideo.src = video.src;
+        modalVideo.play();
+      });
+    });
+  
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+      modalVideo.pause();
+      modalVideo.src = ""; // reset
+    });
+  
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+        modalVideo.pause();
+        modalVideo.src = "";
+      }
+    });
+  });
+  
 });
