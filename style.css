@@ -175,8 +175,8 @@
   }
   
   .cert-card {
-    flex: 0 0 25%; /* 4 cards per view */
-    max-width: 300px;
+    flex: 0 0 auto; /* 4 cards per view */
+    max-width: 280px;
     padding: 20px;
     background: white;
     border-radius: 20px;
