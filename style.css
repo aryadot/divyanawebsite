@@ -162,43 +162,36 @@
     color: #fff;
   }
  
-  .cert-slider-wrapper {
-    overflow: hidden;
-    width: 100%;
-    margin: 60px auto; /* More space above/below */
+  .cert-grid-wrapper {
+    max-width: 1200px;
+    margin: 60px auto;
     padding: 0 20px;
+    text-align: center;
   }
   
-  .cert-slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+  .cert-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
-    padding-bottom: 20px;
-    scrollbar-width: none; /* Firefox */
+    justify-items: center;
   }
-  
-  .cert-slider::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
-  }
-  
   
   .cert-card {
-    flex: 0 0 auto;
-    width: 300px;       /* Wider */
-    height: auto;
-    aspect-ratio: 4 / 3; /* Landscape shape */
-    padding: 16px;
     background: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    scroll-snap-align: start;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    padding: 16px;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s ease;
   }
-  
   
   .cert-card:hover {
     transform: translateY(-5px);
@@ -209,42 +202,9 @@
     height: auto;
     object-fit: contain;
     border-radius: 12px;
-    display: block;
-    margin: 0 auto;
   }
   
-  .cert-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .cert-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 10px;
-    background-color: #FFC72C;
-    color: #062245;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background-color 0.2s;
-  }
-  
-  .cert-btn:hover {
-    background-color: #f3b716;
-  }
-  
-  @keyframes scrollLeft {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-  
-  
+
   .sound-btn {
     position: absolute;
     bottom: 20px;
