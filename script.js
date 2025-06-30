@@ -69,28 +69,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  // 🖼️ Certificate Lightbox
-  const certImages = document.querySelectorAll('.cert-card img');
-  const certModal = document.getElementById('cert-modal');
-  const certModalImg = document.getElementById('cert-modal-img');
-  const closeLightbox = document.querySelector('.close-lightbox');
-
-  certImages.forEach(img => {
-    img.addEventListener('click', () => {
-      certModal.style.display = 'flex';
-      certModalImg.src = img.src;
-    });
-  });
-
-  closeLightbox.addEventListener('click', () => {
-    certModal.style.display = 'none';
-    certModalImg.src = "";
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === certModal) {
-      certModal.style.display = 'none';
-      certModalImg.src = "";
-    }
-  });
+  
 });

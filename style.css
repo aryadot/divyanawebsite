@@ -229,6 +229,8 @@
     }
   }
   
+  
+  
 
   .sound-btn {
     position: absolute;
@@ -443,34 +445,5 @@ section:nth-child(odd) {
     cursor: pointer;
     display: none;
     z-index: 999;
-  }
-  .cert-modal {
-    display: none;
-    position: fixed;
-    z-index: 5000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .cert-modal img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  }
-  
-  .close-lightbox {
-    position: absolute;
-    top: 30px;
-    right: 50px;
-    color: white;
-    font-size: 3rem;
-    cursor: pointer;
-    z-index: 6000;
   }
   
