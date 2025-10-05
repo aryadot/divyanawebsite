@@ -162,41 +162,54 @@
   }
  
   .cert-slider-wrapper {
-    overflow: hidden;
-    width: 100%;
-    margin: 40px auto;
-  }
-  
-  .cert-slider {
-    display: flex;
-    animation: scrollLeft 20s linear infinite;
-    gap: 30px;
-  }
-  
-  .cert-card {
-    flex: 0 0 25%; /* 4 cards per view */
-    max-width: 25%;
-    padding: 10px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    text-align: center;
-    transition: transform 0.2s ease;
-    box-sizing: border-box;
-  }
-  
-  .cert-card:hover {
-    transform: translateY(-5px);
-  }
+  width: 100%;
+  margin: 40px auto;
+  overflow: visible; /* allow cards to breathe */
+}
+
+.cert-slider {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  animation: none; /* Remove the infinite scroll if not needed */
+}
+
+.cert-card {
+  width: 100%;
+  max-width: 250px; /* keeps a consistent card size */
+  padding: 10px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+}
+
   
   .cert-card img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 12px;
-    margin-bottom: 15px;
+  display: block;
+  width: 100%;
+  max-height: 180px;      /* keeps them visually uniform */
+  object-fit: contain;    /* keeps aspect ratio */
+  border-radius: 12px;
+  margin: 0 auto 10px auto;
   }
   
+.cert-card img {
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+.cert-card img:hover {
+  transform: scale(1.02);
+}
+
   .cert-card h3 {
     font-size: 1.1rem;
     margin-bottom: 10px;
