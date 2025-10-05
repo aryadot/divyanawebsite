@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Blog</title>
-  <link rel="stylesheet" href="blog-style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog</title>
+  <link rel="stylesheet" href="styles/blog.css" />
 </head>
 <body>
+  <nav class="top">
+    <a href="index.html#about">← Back to Home</a>
+  </nav>
 
-<nav class="blog-nav">
-        <a href="index.html">← Back to Home</a>
-</nav>
-      
-
-  <!-- Blog Header -->
-  <section class="blog-header">
+  <header class="hero">
     <h1>Welcome to My Blog</h1>
     <p>Discover insightful articles and stories</p>
-  </section>
+  </header>
 
-    <div class="blog-grid">
-      <div class="blog-card">
-        <a href="blog-posts/article1.html">
-          <img src="assets/imag1.jpg" alt="Clean Code">
-          <h3>If the GDP is growing?, Why Are We Miserable?</h3>
-          <p>At a glance, the world looks like it’s thriving...</p>
-          <span class="read-more">Read More</span>
+  <main class="wrap">
+    <section class="grid">
+      <!-- Card 1 -->
+      <article class="card">
+        <a class="card-link" href="article.html?post=article1.md&title=Why%20Are%20We%20Miserable%3F&date=2024-08-17&read=5">
+          <div class="thumb"><img src="assets/imag1.jpg" alt="Why Are We Miserable?" /></div>
+          <div class="body">
+            <h3>If the GDP is growing, why are we miserable?</h3>
+            <p>Markets boom, but well-being lags—what are we really measuring?</p>
+            <div class="meta"><span>5 min read</span><span class="more">Read More</span></div>
+          </div>
         </a>
-      </div>
-      <div class="blog-card">
-        <a href="blog-posts/article2.html">
-          <img src="assets/image2.png" alt="ChatGPT-4 Plus">
-          <h3>Why Can't We Print More Money?</h3>
-          <p>Let’s take the case of Germany 1923, The country ...</p>
-          <span class="read-more">Read More</span>
-        </a>
-      </div>
-      <!-- Add more cards similarly -->
-    </div>
-  </section>
+      </article>
 
+      <!-- Card 2 -->
+      <article class="card">
+        <a class="card-link" href="article.html?post=article2.md&title=Why%20Can%E2%80%99t%20We%20Print%20More%20Money%3F&date=2024-09-02&read=4">
+          <div class="thumb"><img src="assets/image2.png" alt="Why Can't We Print More Money?" /></div>
+          <div class="body">
+            <h3>Why Can’t We Print More Money?</h3>
+            <p>Hyperinflation’s playbook and what history teaches us.</p>
+            <div class="meta"><span>4 min read</span><span class="more">Read More</span></div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Add more cards the same way -->
+    </section>
+  </main>
 </body>
 </html>
