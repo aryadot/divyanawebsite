@@ -168,13 +168,19 @@
 }
 
 .cert-slider {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
   gap: 30px;
-  justify-items: center;
-  animation: none; /* Remove the infinite scroll if not needed */
+  width: max-content;            /* shrink-wrap to content for smooth loop */
+  animation: scrollLeft 25s linear infinite;
+  will-change: transform;
 }
-
+.cert-slider:hover {             /* pause on hover (optional) */
+  animation-play-state: paused;
+}
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* move exactly one copy width */
+}
 .cert-card {
   width: 100%;
   max-width: 250px; /* keeps a consistent card size */
