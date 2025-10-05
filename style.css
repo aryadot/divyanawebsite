@@ -51,27 +51,25 @@
   
   /* VIDEO OVERLAY */
   .video-overlay {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-     top: 0;
-     left: 0;
-     background: black;
-     z-index: 2000;
-    overflow: hidden;
+  position: fixed;
+  inset: 0;
+  z-index: 0;            /* behind all page content */
+  overflow: hidden;
+  pointer-events: none;  /* never intercept clicks */
+  background: transparent;
   }
   
   
   .video-overlay video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
   }
   
   /* TOP TOGGLE NAVIGATION */
@@ -110,20 +108,21 @@
 
 #main-content {
   background: transparent;
-  display: none;
-  padding-top: 100px; /* offset for fixed nav */
+  /* display: none; */   /* REMOVE this line */
+  display: block;        /* ADD this line */
+  padding-top: 100px;
 
 }
   section {
-    display: none;
-  background-color: rgba(255, 255, 255, 0.7); /* semi-transparent */
+  display: block;        /* ADD this line */
+  background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(2px);
   border-radius: 12px;
-  margin: 60px auto; /* Add vertical space between sections */
+  margin: 60px auto;
   padding: 60px 20px;
   animation: fadeIn 1s ease;
-  scroll-margin-top: 120px; /* Ensures it's not hidden under nav */
-  max-width: 1000px; /* Optional: to keep content nicely centered */
+  scroll-margin-top: 120px;
+  max-width: 1000px;
   }
   
   
@@ -233,18 +232,19 @@
   
 
   .sound-btn {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 3000;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    transition: background 0.3s;
+  position: fixed;       /* make sure it floats over everything */
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 3000;         /* above nav/content */
+  pointer-events: auto;  /* re-enable clicks for this button only */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s;
   }
   
   .sound-btn:hover {
