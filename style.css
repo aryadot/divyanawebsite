@@ -168,11 +168,11 @@
 }
 
 .cert-slider {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
-  padding: 0 40px;  /* add space on left and right */
-  animation: scrollLeft 20s linear infinite;
-
+  justify-items: center;
+  animation: none;
 }
 
 
